@@ -128,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/SIFT/jupyter_notebook/test/
