@@ -160,7 +160,11 @@ def retrieve_info(path_image, pp, api_key=api_key):
         print(table_data)
     df = table_data[0]
     df.columns = df.loc[0]
-    return df, df[1:].to_dict(), table_data
+    # for i in range(1,len(table_data)):
+    #     df = df.join(table_data[i])
+    # # df = pd.concat(table_data, axis=0)
+    print(df)
+    return df, df[2:].to_dict(), table_data
 
 
 def pipeline(filename_path, pp=False, api=True, df_info=False, api_key=api_key):

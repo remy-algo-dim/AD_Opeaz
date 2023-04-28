@@ -1,13 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# =============================================================================
-# Created By  : Remy Adda
-# Created Date: 2023
-# =============================================================================
-"""Linting model which allow to extract relevant informations from listing documents"""
-# =============================================================================
-
-
 from ExtractTable import ExtractTable
 import os
 import random
@@ -57,8 +47,29 @@ if __name__ == '__main__':
         im_1.save("{}/{}.pdf".format(file_path, filename))
         args.file = "{}/{}.pdf".format(file_path, filename)
 
+    images = convert_from_path(
+        args.file, output_folder=file_path)
+
+    all_images = []
+    for image in images:
+        all_images.append(image)
+
+    if len(all_images) > 1:
+        logger.warning(
+            "Multiple images detected in the PDF file. Concatenating them horizontally.")
+        concat_image = Image.new(
+            'RGB', (all_images[0].width * len(all_images), all_images[0].height))
+        x_offset = 0
+        for img in all_images:
+            concat_image.paste(img, (x_offset, 0))
+            x_offset += img.width
+
+        concat_image.save(
+            "{}/{}_concatenated.jpg".format(file_path, filename), quality=95)
+        args.file = "{}/{}_concatenated.jpg".format(file_path, filename)
+
     df, dic, table_data = pipeline(
-        args.file, pp=False, api=True, df_info=False, api_key=api_key)
+        args.file, pp=True, api=True, df_info=False, api_key=api_key)
 
     next_table = 1
 
@@ -73,4 +84,4 @@ if __name__ == '__main__':
     print(150*"=")
     print("Final outputs: \n")
     print(dic)
-    dic.to_excel("test2.xlsx", engine="openpyxl", index=False)
+    dic.to_excel("test.xlsx", engine="openpyxl", index=False)

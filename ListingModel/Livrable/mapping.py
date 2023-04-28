@@ -16,7 +16,7 @@ mapping = {
            "Code Article", "C.I.P / Article", "Code EAN"]',
 
 		   "quantite": '["Qté", "Qté Vendue", "Nb unité", "Qt", "Qte Facturée", "Qte Délivrée", "quantité", \
-           "Quantité", "Qt é", "Nombre Unités", "Nombre", "Quantité Lieu", "Cdée", "Qt e", "Unités"]',
+           "Quantité", "Qt é", "Nombre Unités", "Nombre", "Quantité Lieu", "Cdée", "Qt e", "Unités", "Total"]',
 
 		   "CA TTC": '["Montant TTC", "CA Brut TTC", "CA TTC brut", "PV TTC", "CA brut TTC", "PrixV TTC", \
            "Ch Affaire T.T.C.", "CA TTC", ]',
