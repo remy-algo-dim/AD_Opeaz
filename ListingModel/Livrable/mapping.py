@@ -15,6 +15,8 @@ mapping = {
            "Gamme GAVISCONELL Désignation (CIP)", "Code produit", "Code produit (ou Code LPP)	", \
            "Code Article", "C.I.P / Article", "Code EAN"]',
 
+           "nom": '["Nom", "libellé"]',
+
 		   "quantite": '["Qté", "Qté Vendue", "Nb unité", "Qt", "Qte Facturée", "Qte Délivrée", "quantité", \
            "Quantité", "Qt é", "Nombre Unités", "Nombre", "Quantité Lieu", "Cdée", "Qt e", "Unités", "Total"]',
 
